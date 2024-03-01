@@ -1,31 +1,17 @@
-import jwt from 'jsonwebtoken';
-import util from 'util';
 import { ERRORS, SUCCESS } from '../shared/messages.js';
 import { AdmService } from '../service/adm.service.js';
-export const SECRET = "4654s465d465fg"
+
 
 
 const instanceOfAdm = new AdmService();
 
-const verifyJwt = async (req, res, next ) =>{
-    const token = req.headers['x-acess-token']
-    const verifyPromise = util.promisify(jwt.verify)
-
-    try{
-        const decoded = await verifyPromise(token, SECRET)
-        req.admid = decoded.admid
-        next();
-    }catch(error){
-        res.status(401).json({message:'não autorizado'}).end()
-    }
-};
 
 
 const loginAdm = async (req,res) =>{
 
        const { name,password } = req.body
        
-       const adm = await instanceOfAdm.loginAdmService(name,password)
+       const adm = await instanceOfAdm.LoginAdmService(name,password)
 
        if(!name || !password){
         return res.json({message: 'dados faltando'})
@@ -58,7 +44,23 @@ const registerAdm = async (req,res) =>{
     res
     .status(201)
     .json({message:`adm ${SUCCESS.CREATED}`, adm:adm})
-}
+};
+
+const logoutAdm = async (req,res) =>{
+    
+    const token = req.headers['x-acess-token']
 
 
-export { loginAdm, verifyJwt, registerAdm}
+    const tokenValidation = await instanceOfAdm.LogoutAdmService(token)
+    if(tokenValidation.name === 'SequelizeValidationError'){
+        return res.status(422).json({ message:`erro de logout, token ${ERRORS.NOT_FOUND}`});
+    }
+
+    res
+    .status(201)
+    .json({message: `token ${SUCCESS.UPDATED}`, BlackListedToken: tokenValidation})
+
+};
+
+
+export { loginAdm, registerAdm, logoutAdm };

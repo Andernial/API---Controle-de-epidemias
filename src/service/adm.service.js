@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
-import { AdmEntity } from "../entities/Adm.entities.js";
-import { SECRET } from '../controller/adm.controller.js';
+import { AdmEntity } from "../entities/Adm.entity.js";
+import { SECRET } from '../middleware/verifyJwt.middleware.js';
+import { BlackListedTokenEntity } from '../entities/BlackListToken.entity.js';
 
 export class AdmService{
-    async loginAdmService(name,password){
+    async LoginAdmService(name,password){
         try {
             await AdmEntity.sync()
             
@@ -27,9 +28,9 @@ export class AdmService{
         }
     };
     async RegisterAdmService(name,password){
-        await AdmEntity.sync()
+     
         try {
-
+              await AdmEntity.sync()
                const newAdm = await AdmEntity.create({
                 name,password
                })
@@ -39,4 +40,15 @@ export class AdmService{
             return error
         }
     };
+    async LogoutAdmService(token){
+       
+        try {
+            await BlackListedTokenEntity.sync()
+            const blacklist = await BlackListedTokenEntity.create({token})
+    
+            return blacklist
+        } catch (error) {
+            return error
+        }
+    }
 };
