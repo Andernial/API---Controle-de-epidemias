@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginAdm, registerAdm, verifyJwt } from "../controller/admin.controller.js";
+import { loginAdm, registerAdm, verifyJwt } from "../controller/adm.controller.js";
 
 
 const admRouter = Router();

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { AdmEntity } from "../entities/Adm.entities.js";
-import { SECRET } from '../controller/admin.controller.js';
+import { SECRET } from '../controller/adm.controller.js';
 
 export class AdmService{
     async loginAdmService(name,password){
