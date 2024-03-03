@@ -34,25 +34,15 @@ export class InformacoesPorLocalService {
         try {
             await InformacoesPorLocalEntity.sync()
 
-            const whereClause = {}
-
-            if(nameEpidemy){
-                whereClause.nameEpidemy = nameEpidemy
-            }
-            if(nameState){
-                whereClause.nameState = nameState
-            }
-
-            if(localName){
-                whereClause.localName = localName
-            }
+            const values = {nameEpidemy, nameState, localName}
+            const whereClause = Object.fromEntries(
+                Object.entries(values).filter(([key, value]) => value !== undefined)
+            );
 
             const informacoes = await InformacoesPorLocalEntity.findAll({
                 where: whereClause
    
             })
-            
-            
 
             if(!informacoes.length){
                 return 'não encontrada'
