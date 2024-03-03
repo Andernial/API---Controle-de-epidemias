@@ -27,6 +27,7 @@ export class AdmService{
             return error
         }
     };
+
     async RegisterAdmService(name,password){
      
         try {
@@ -40,6 +41,7 @@ export class AdmService{
             return error
         }
     };
+    
     async LogoutAdmService(token){
        
         try {

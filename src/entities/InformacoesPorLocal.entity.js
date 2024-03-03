@@ -11,12 +11,13 @@ export const InformacoesPorLocalEntity = database.define('informacoesPorLocal', 
 
     nameState: {
         type: DataTypes.STRING(2),
-        allowNull: false            
+        allowNull: false,         
     },
 
     localName:{
-        type: DataTypes.STRING(2),
+        type: DataTypes.STRING(100),
         allowNull: false    
+       
     },
 
     nameEpidemy:{
@@ -50,3 +51,6 @@ export const InformacoesPorLocalEntity = database.define('informacoesPorLocal', 
         allowNull: false
     }
 });
+
+
+
