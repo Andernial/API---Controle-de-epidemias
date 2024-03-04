@@ -34,6 +34,11 @@ export const InformacoesPorLocalEntity = database.define('informacoesPorLocal', 
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    
+    numberOfPossibleCases:{
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
 
     numberOfFatalities:{
         type: DataTypes.INTEGER,
@@ -43,7 +48,7 @@ export const InformacoesPorLocalEntity = database.define('informacoesPorLocal', 
     urlInfoLocations:{
         type: DataTypes.STRING(100),
         unique: true,
-        allowNull: false
+        allowNull: true
     },
     
     data:{

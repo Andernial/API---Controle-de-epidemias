@@ -7,9 +7,9 @@ const instanceOfInformacoes = new InformacoesPorLocalService();
 
 
 const createInformation = async (req, res) => {
-    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data } = req.body
+    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data } = req.body
 
-    const informacao = await instanceOfInformacoes.createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data)
+    const informacao = await instanceOfInformacoes.createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data)
 
     if (informacao.name === 'SequelizeValidationError') {
         return res.status(400).json({ message: `Erro ${ERRORS.MISSING_DATA} ` })
@@ -53,7 +53,7 @@ const showInformationByQuery = async (req, res) => {
 
 const updateInformation = async (req, res) => {
     const { id } = req.params
-    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data } = req.query
+    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data } = req.query
     const informacao = await instanceOfInformacoes.updateInformationService(id, nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data)
 
     if (informacao === 'não encontrada') {

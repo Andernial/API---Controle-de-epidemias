@@ -4,11 +4,11 @@ import { InformacoesPorLocalEntity } from "../entities/InformacoesPorLocal.entit
 
 
 export class InformacoesPorLocalService {
-    async createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data) {
+    async createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data) {
         try {
             await InformacoesPorLocalEntity.sync()
             const information = await InformacoesPorLocalEntity.create({
-                nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data
+                nameState, localName, nameEpidemy, description, numberOfCases,numberOfPossibleCases,  numberOfFatalities, urlInfoLocations, data
             })
 
             return information
@@ -56,7 +56,7 @@ export class InformacoesPorLocalService {
         }
     }
 
-    async updateInformationService(id,nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data){
+    async updateInformationService(id,nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases,  numberOfFatalities, urlInfoLocations, data){
         try {
             await InformacoesPorLocalEntity.sync()
             const localExists = await InformacoesPorLocalEntity.findByPk(id)
@@ -72,6 +72,7 @@ export class InformacoesPorLocalService {
                 nameEpidemy: nameEpidemy !== undefined ? nameEpidemy : localExists.nameEpidemy,
                 description: description !== undefined ? description : localExists.description,
                 numberOfCases: numberOfCases !== undefined ? numberOfCases : localExists.numberOfCases,
+                numberOfPossibleCases: numberOfPossibleCases !== undefined ? numberOfPossibleCases : localExists.numberOfPossibleCases,
                 numberOfFatalities: numberOfFatalities !== undefined ? numberOfFatalities : localExists.numberOfFatalities,
                 urlInfoLocations: urlInfoLocations !== undefined ? urlInfoLocations : localExists.urlInfoLocations,
                 data: data !== undefined ? data : localExists.data,
