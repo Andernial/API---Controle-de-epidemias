@@ -21,7 +21,7 @@ const createInformation = async (req, res) => {
 
     res
         .status(201)
-        .json({ message: `informação ${SUCCESS.CREATED}`, informação: informacao })
+        .json(informacao)
 
 };
 
@@ -70,7 +70,7 @@ const updateInformation = async (req, res) => {
 
     res
         .status(201)
-        .json({ message: `informação ${SUCCESS.UPDATED}`, informação: informacao })
+        .json(informacao)
 };
 
 const deleteInformation = async (req, res) => {
