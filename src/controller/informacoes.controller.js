@@ -20,8 +20,8 @@ const createInformation = async (req, res) => {
     }
 
     res
-        .status(201)
-        .json(informacao)
+       
+        .json(informacao).status(201)
 
 };
 
@@ -83,7 +83,7 @@ const deleteInformation = async (req, res) => {
     }
 
     if (informacao === 'destroyed') {
-        return res.status(201).json({ message: `informação ${SUCCESS.DELETED}` })
+        return res.status(200).json({ message: `informação ${SUCCESS.DELETED}` })
 
 
     }
