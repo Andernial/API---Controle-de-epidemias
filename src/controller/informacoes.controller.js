@@ -49,7 +49,7 @@ const showInformationByQuery = async (req, res) => {
         .json({ informacoes })
 
 
-}
+};
 
 const updateInformation = async (req, res) => {
     const { id } = req.params
