@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize as database } from "../database/connection.js";
 
 export const RelatosEntity = database.define('relatosDeCasos', {
+    //nome,nameEpidemy,Casedescription,email,data,nameState,localName,CPF
 
     id: {
         type: DataTypes.INTEGER,
@@ -10,8 +11,9 @@ export const RelatosEntity = database.define('relatosDeCasos', {
     },
 
     name:{
-        type: DataTypes.STRING(20),
-        allowNull: false
+        type: DataTypes.STRING(40),
+        allowNull: false,
+        unique: true
     },
 
     nameEpidemy:{
@@ -40,12 +42,12 @@ export const RelatosEntity = database.define('relatosDeCasos', {
     },
 
     localName:{
-        type: DataTypes.STRING(2),
+        type: DataTypes.STRING(255),
         allowNull: false    
     },
 
     CPF:{
-        type: DataTypes.STRING(2),
+        type: DataTypes.STRING(255),
         allowNull: false    
     }
 
