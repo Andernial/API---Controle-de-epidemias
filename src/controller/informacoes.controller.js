@@ -54,7 +54,7 @@ const showInformationByQuery = async (req, res) => {
 const updateInformation = async (req, res) => {
     const { id } = req.params
     const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data } = req.query
-    const informacao = await instanceOfInformacoes.updateInformationService(id, nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data)
+    const informacao = await instanceOfInformacoes.updateInformationService(id, nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data)
 
     if (informacao === 'não encontrada') {
         return res.status(400).json({ message: `Erro informacao ${ERRORS.NOT_FOUND} ` })

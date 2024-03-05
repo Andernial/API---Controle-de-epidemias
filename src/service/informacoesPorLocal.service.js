@@ -1,5 +1,6 @@
 
 import { InformacoesPorLocalEntity } from "../entities/InformacoesPorLocal.entity.js";
+import { SUCCESS } from "../shared/messages.js";
 
 
 
@@ -10,8 +11,8 @@ export class InformacoesPorLocalService {
             const information = await InformacoesPorLocalEntity.create({
                 nameState, localName, nameEpidemy, description, numberOfCases,numberOfPossibleCases,  numberOfFatalities, urlInfoLocations, data
             })
-
-            return information
+            
+            return { message: `informação ${SUCCESS.CREATED}`, informação: information }
 
         } catch (error) {
             return error
@@ -64,7 +65,7 @@ export class InformacoesPorLocalService {
             if (!localExists) {
                 return 'não encontrada'
             }
-
+    
             const params = {
 
                 nameState: nameState !== undefined ? nameState : localExists.nameState,
@@ -78,6 +79,7 @@ export class InformacoesPorLocalService {
                 data: data !== undefined ? data : localExists.data,
 
             }
+                console.log(urlInfoLocations)
 
                 await InformacoesPorLocalEntity.update(params, {
                     where: {
@@ -85,9 +87,10 @@ export class InformacoesPorLocalService {
                     }
                 })
                 
-                return await InformacoesPorLocalEntity.findByPk(id)
+                return { message: `informação ${SUCCESS.UPDATED}`, informação: await InformacoesPorLocalEntity.findByPk(id)}
 
         } catch (error) {
+            console.log(error)
             return error
         }
     };
