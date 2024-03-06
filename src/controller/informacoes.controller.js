@@ -7,9 +7,9 @@ const instanceOfInformacoes = new InformacoesPorLocalService();
 
 
 const createInformation = async (req, res) => {
-    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data } = req.body
+    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data } = req.body
 
-    const informacao = await instanceOfInformacoes.createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data)
+    const informacao = await instanceOfInformacoes.createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data)
 
     if (informacao.name === 'SequelizeValidationError') {
         return res.status(400).json({ message: `Erro ${ERRORS.MISSING_DATA} ` })
@@ -20,8 +20,8 @@ const createInformation = async (req, res) => {
     }
 
     res
-        .status(201)
-        .json({ message: `informação ${SUCCESS.CREATED}`, informação: informacao })
+       
+        .json(informacao).status(201)
 
 };
 
@@ -49,12 +49,12 @@ const showInformationByQuery = async (req, res) => {
         .json({ informacoes })
 
 
-}
+};
 
 const updateInformation = async (req, res) => {
     const { id } = req.params
-    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data } = req.query
-    const informacao = await instanceOfInformacoes.updateInformationService(id, nameState, localName, nameEpidemy, description, numberOfCases, numberOfFatalities, urlInfoLocations, data)
+    const { nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data } = req.query
+    const informacao = await instanceOfInformacoes.updateInformationService(id, nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data)
 
     if (informacao === 'não encontrada') {
         return res.status(400).json({ message: `Erro informacao ${ERRORS.NOT_FOUND} ` })
@@ -70,7 +70,7 @@ const updateInformation = async (req, res) => {
 
     res
         .status(201)
-        .json({ message: `informação ${SUCCESS.UPDATED}`, informação: informacao })
+        .json(informacao)
 };
 
 const deleteInformation = async (req, res) => {
@@ -83,7 +83,7 @@ const deleteInformation = async (req, res) => {
     }
 
     if (informacao === 'destroyed') {
-        return res.status(201).json({ message: `informação ${SUCCESS.DELETED}` })
+        return res.status(200).json({ message: `informação ${SUCCESS.DELETED}` })
 
 
     }

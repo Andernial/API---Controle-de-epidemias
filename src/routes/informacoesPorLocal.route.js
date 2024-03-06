@@ -2,15 +2,15 @@ import { Router } from "express";
 import { createInformation, deleteInformation, showAllInformation, showInformationByQuery, updateInformation } from "../controller/informacoes.controller.js";
 const InformacoesLocalRouter = Router();
 
-InformacoesLocalRouter.post("/create-informacao", createInformation);
+InformacoesLocalRouter.post("/create", createInformation);
 
-InformacoesLocalRouter.get("/showAll-informacao", showAllInformation);
+InformacoesLocalRouter.get("/show-all", showAllInformation);
 
-InformacoesLocalRouter.get("/showby-Query", showInformationByQuery);
+InformacoesLocalRouter.get("/show-by", showInformationByQuery);
 
-InformacoesLocalRouter.put("/update-informacao/:id", updateInformation);
+InformacoesLocalRouter.put("/update-by/:id", updateInformation);
 
-InformacoesLocalRouter.delete("/delete-informacao/:id", deleteInformation );
+InformacoesLocalRouter.delete("/delete/:id", deleteInformation );
 
 
 
