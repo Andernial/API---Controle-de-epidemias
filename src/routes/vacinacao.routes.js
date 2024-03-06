@@ -3,15 +3,15 @@ import { createInfoVaccination, showAllVaccination, showVaccionationByQuery, upd
 const VaccinationRouter = Router();
 
 
-VaccinationRouter.post ("/create-vaccination", createInfoVaccination);
+VaccinationRouter.post ("/create", createInfoVaccination);
 
-VaccinationRouter.get ("/showAll-vaccination", showAllVaccination);
+VaccinationRouter.get ("/show-all", showAllVaccination);
 
-VaccinationRouter.get ("/showBy-query", showVaccionationByQuery);
+VaccinationRouter.get ("/show-by", showVaccionationByQuery);
 
-VaccinationRouter.put ("/update-vaccination/:id", updateVaccination);
+VaccinationRouter.put ("/update-by/:id", updateVaccination);
 
-VaccinationRouter.delete("/delete-vaccination/:id", deleteVaccination);
+VaccinationRouter.delete("/delete/:id", deleteVaccination);
 
 
 export { VaccinationRouter };
