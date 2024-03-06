@@ -66,21 +66,22 @@ const updateVaccination = async (req, res) => {
 
     res
     .status(201)
-    .json({ message: `informação ${SUCCESS.UPDATED}`, informação: informacao })
+    .json({ message: `vacinação ${SUCCESS.UPDATED}`, informação: vaccination })
 };
 
 const deleteVaccination = async (req, res) => {
+    
     const { id } = req.params
 
     const vaccination = await infoVaccination.deleteVaccinationService(id)
     console.log(vaccination)
 
     if (vaccination === 'não encontrada') {
-        return res.status(400).json({ message: `Erro informacao ${ERRORS.NOT_FOUND} ` })
+        return res.status(400).json({ message: `Erro vacination ${ERRORS.NOT_FOUND} ` })
     }
 
     if (vaccination === 'destroyed') {
-        return res.status(201).json({ message: `informação ${SUCCESS.DELETED}` })
+        return res.status(201).json({ message: `vacination ${SUCCESS.DELETED}` })
 
 
     }

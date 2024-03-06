@@ -58,16 +58,16 @@ export class vacinacaoService {
             await VacinacaoEntity.sync()
             const vacinacao = await VacinacaoEntity.findByPk(id)
 
-            if (!localExists) {
+            if (!vacinacao) {
                 return 'não encontrada'
             }
 
             const params = {
-                nameEpidemy: nameEpidemy !== undefined ? nameEpidemy : localExists.localEpidemyName,
-                nameVaccination: nameVaccination !== nameVaccination ? nameVaccination : localExists.name, 
-                description: description !== description ? description : localExists.description, 
-                data: data !== data ? data : localExists.data,
-                urlInfo: urlInfo !== urlInfo ? urlInfo : localExists.urlInfo,
+                nameEpidemy: nameEpidemy !== undefined ? nameEpidemy :vacinacao.nameEpidemy,
+                nameVaccination: nameVaccination !== nameVaccination ? nameVaccination : vacinacao.nameVaccination, 
+                description: description !== description ? description : vacinacao.description, 
+                data: data !== data ? data : vacinacao.data,
+                urlInfo: urlInfo !== urlInfo ? urlInfo :vacinacao.urlInfo,
             }
 
             await vacinacao.update(params, {
@@ -86,9 +86,9 @@ export class vacinacaoService {
     async deleteVaccinationService(id) {
         try {
             await VacinacaoEntity.sync()
-            const localExists = await VacinacaoEntity.findByPk(id)
+            const vacination = await VacinacaoEntity.findByPk(id)
 
-            if (!localExists) {
+            if (!vacination) {
                 return 'não encontrada'
             }
 

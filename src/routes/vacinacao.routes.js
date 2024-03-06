@@ -9,7 +9,7 @@ VaccinationRouter.get ("/showAll-vaccination", showAllVaccination);
 
 VaccinationRouter.get ("/showBy-query", showVaccionationByQuery);
 
-VaccinationRouter.put ("/update-vaccination", updateVaccination);
+VaccinationRouter.put ("/update-vaccination/:id", updateVaccination);
 
 VaccinationRouter.delete("/delete-vaccination/:id", deleteVaccination);
 
