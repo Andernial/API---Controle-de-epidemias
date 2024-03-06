@@ -2,7 +2,7 @@
 tecnologias utilizadas:
 node, express, cors, nodemon,jsonwebtoken,sequelize 
 ## Para iniciar
-Conecte o Sequelize com o servidor de sua preferência
+Conecte o Sequelize com o servidor de sua preferência 
 ```
 const sequelize = new Sequelize("db_controle", "root", "1234", {
     host: "localhost",
