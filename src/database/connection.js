@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 
 
                                  // nome provisório               
-const sequelize = new Sequelize("db_controle", "root", "1234", {
+const sequelize = new Sequelize("db_controle", "root", "", {
     host: "localhost",
     dialect: "mysql"
 });

@@ -11,7 +11,7 @@ relateCaseRouter.post('/create', createCases);
 
 relateCaseRouter.get('/show-all', showAllCases);
 
-relateCaseRouter.get('/show-by-query', showCaseByQuery)
+relateCaseRouter.get('/show-by', showCaseByQuery)
 
 relateCaseRouter.put('/update/:id', updateCase)
 

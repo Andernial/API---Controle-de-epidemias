@@ -16,7 +16,7 @@ export class AdmService{
             })
         
             if(adm){ 
-                const token = jwt.sign({admid : adm.id}, SECRET, { expiresIn: 300 })
+                const token = jwt.sign({admid : adm.id}, SECRET, { expiresIn: 36000  })
                 return  {auth : true, token}
                 
             }
