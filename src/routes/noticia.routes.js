@@ -13,7 +13,7 @@ newsRouter.post('/create',createNews)
 
 newsRouter.get('/show-all',showAllNews)
 
-newsRouter.get('/show-by-query',showNewsByQuery)
+newsRouter.get('/show-by',showNewsByQuery)
 
 newsRouter.put('/update/:id',updateNews)
 
