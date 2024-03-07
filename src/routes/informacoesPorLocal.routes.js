@@ -1,16 +1,17 @@
 import { Router } from "express";
 import { createInformation, deleteInformation, showAllInformation, showInformationByQuery, updateInformation } from "../controller/informacoes.controller.js";
+import { verifyJwt } from "../middleware/verifyJwt.middleware.js";
 const InformacoesLocalRouter = Router();
 
-InformacoesLocalRouter.post("/create", createInformation);
+InformacoesLocalRouter.post("/create", verifyJwt,createInformation);
 
 InformacoesLocalRouter.get("/show-all", showAllInformation);
 
-InformacoesLocalRouter.get("/show-by", showInformationByQuery);
+InformacoesLocalRouter.get("/show-by",   showInformationByQuery);
 
-InformacoesLocalRouter.put("/update-by/:id", updateInformation);
+InformacoesLocalRouter.put("/update-by/:id", verifyJwt, updateInformation);
 
-InformacoesLocalRouter.delete("/delete/:id", deleteInformation );
+InformacoesLocalRouter.delete("/delete/:id", verifyJwt, deleteInformation );
 
 
 
