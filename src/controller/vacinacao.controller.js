@@ -1,4 +1,4 @@
-import { vacinacaoService } from "../service/vacinacaoservice.js";
+import { vacinacaoService } from "../service/vacinacao.service.js";
 import { ERRORS, SUCCESS } from "../shared/messages.js";
 
 const infoVaccination = new vacinacaoService();

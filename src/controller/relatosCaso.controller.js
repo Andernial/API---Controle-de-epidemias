@@ -150,6 +150,3 @@ export const deleteCase = async (req, res) => {
 
 
 };
-
-
-
