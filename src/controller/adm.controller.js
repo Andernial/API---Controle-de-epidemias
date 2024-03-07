@@ -52,6 +52,11 @@ const logoutAdm = async (req,res) =>{
 
 
     const tokenValidation = await instanceOfAdm.LogoutAdmService(token)
+
+    if(tokenValidation.name === 'SequelizeUniqueConstraintError'){
+      return res.status(422).json({ message:`erro de logout, token ${ERRORS.ALREADY_EXIST} na blacklist`});
+  }
+  
     if(tokenValidation.name === 'SequelizeValidationError'){
         return res.status(422).json({ message:`erro de logout, token ${ERRORS.NOT_FOUND}`});
     }

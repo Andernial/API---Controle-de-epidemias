@@ -51,6 +51,9 @@ export const createCases = async (req, res) => {
 
 export const showAllCases = async (req, res) => {
     const cases =  await instanceServiceCases.showAllCasesService()
+    if(!cases.length){
+        return res.status(400).json({message: ` erro ${ERRORS.NOT_FOUND}`})
+    }
         res
             .status(201)
             .json({ cases })

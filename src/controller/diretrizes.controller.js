@@ -26,6 +26,9 @@ const createGuideline = async (req,res) => {
 const showAllGuideline= async (req, res) => {
 
     const diretrizes = await instanteceOfDiretrizService.showAllGuidelineService()
+    if(!diretrizes.length){
+        return res.status(400).json({message: ` erro ${ERRORS.NOT_FOUND}`})
+    }
     res
         .status(200)
         .json({ diretrizes })

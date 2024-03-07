@@ -10,7 +10,7 @@ export class newsService {
             await NoticiaEntity.sync()
             const newNews = await NoticiaEntity.create({
                 title, nameEpidemy, description, urlNews, data  })
-            return { message: `Relato ${SUCCESS.CREATED}`, relato: newNews }
+            return { message: `Notícia ${SUCCESS.CREATED}`, relato: newNews }
 
         } catch (error) {
             return error
@@ -90,7 +90,7 @@ export class newsService {
                 }
             })
 
-            return { message: `caso ${SUCCESS.UPDATED}`, caso: await NoticiaEntity.findByPk(id) }
+            return { message: `Notícia ${SUCCESS.UPDATED}`, Notícia: await NoticiaEntity.findByPk(id) }
 
         } catch (error) {
             return error

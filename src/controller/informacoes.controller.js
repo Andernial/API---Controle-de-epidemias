@@ -28,6 +28,9 @@ const createInformation = async (req, res) => {
 const showAllInformation = async (req, res) => {
 
     const informacoes = await instanceOfInformacoes.showAllInformationService()
+    if(!informacoes.length){
+        return res.status(400).json({message: ` erro ${ERRORS.NOT_FOUND}`})
+    }
     res
         .status(200)
         .json({ informacoes })

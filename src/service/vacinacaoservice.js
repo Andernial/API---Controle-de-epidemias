@@ -28,11 +28,11 @@ export class vacinacaoService {
         }
     }
 
-    async showAllVaccionationByQueryService (nameVaccination, data, urlInfo) {
+    async showAllVaccionationByQueryService (nameVaccination, data, urlInfo,nameEpidemy) {
         try {
             await VacinacaoEntity.sync()
 
-            const values = {nameVaccination, data, urlInfo}
+            const values = {nameVaccination, data, urlInfo,nameEpidemy}
             const whereClause = Object.fromEntries(
                 Object.entries(values).filter(([key, value]) => value !== undefined)
             );
@@ -75,10 +75,11 @@ export class vacinacaoService {
                     id
                 }
             })
-            
-            return await vacinacao.findByPk(id)
 
+            return await VacinacaoEntity.findByPk(id)
+           
         } catch (error) {
+           
         return error
         }
     }

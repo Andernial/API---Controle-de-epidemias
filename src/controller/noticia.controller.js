@@ -45,6 +45,10 @@ export const createNews = async (req, res) => {
 
 export const showAllNews = async (req, res) => {
     const news =  await instanceServiceNews.showAllNewsService()
+    
+    if(!news.length){
+        return res.status(400).json({message: ` erro ${ERRORS.NOT_FOUND}`})
+    }
         res
             .status(201)
             .json({ news})
@@ -115,11 +119,11 @@ export const deleteNews = async (req, res) => {
     const newsDeleted = await instanceServiceNews.deleteNewsService(id)
 
     if (newsDeleted === 'não encontrada') {
-        return res.status(400).json({ message: `Erro Case ${ERRORS.NOT_FOUND} ` })
+        return res.status(400).json({ message: `Erro notícia ${ERRORS.NOT_FOUND} ` })
     }
 
     if (newsDeleted === 'destroyed') {
-        return res.status(200).json({ message: `informação ${SUCCESS.DELETED}` })
+        return res.status(200).json({ message: `notícia ${SUCCESS.DELETED}` })
 
 
     }

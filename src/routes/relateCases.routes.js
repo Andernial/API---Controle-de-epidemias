@@ -13,7 +13,7 @@ relateCaseRouter.get('/show-all', showAllCases);
 
 relateCaseRouter.get('/show-by', showCaseByQuery)
 
-relateCaseRouter.put('/update/:id', updateCase)
+relateCaseRouter.put('/update-by/:id', updateCase)
 
 
 relateCaseRouter.delete('/delete/:id', deleteCase)

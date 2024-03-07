@@ -15,7 +15,7 @@ newsRouter.get('/show-all',showAllNews)
 
 newsRouter.get('/show-by',showNewsByQuery)
 
-newsRouter.put('/update/:id',updateNews)
+newsRouter.put('/update-by/:id',updateNews)
 
 newsRouter.delete('/delete/:id',deleteNews)
 

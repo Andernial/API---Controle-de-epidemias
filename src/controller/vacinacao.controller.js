@@ -1,4 +1,4 @@
-import { vacinacaoService } from "../service/vaccination.service.js";
+import { vacinacaoService } from "../service/vacinacaoservice.js";
 import { ERRORS, SUCCESS } from "../shared/messages.js";
 
 const infoVaccination = new vacinacaoService();
@@ -7,7 +7,7 @@ export const createInfoVaccination = async (req, res) => {
     const {nameEpidemy, nameVaccination, description, data, urlInfo} = req.body
 
     const vaccination = await infoVaccination.createInformationVaccinationService(nameEpidemy, nameVaccination, description, data, urlInfo) 
-    console.log(vaccination)
+   
 
 
     if (vaccination.name === 'SequelizeValidationError') {
@@ -26,6 +26,9 @@ export const createInfoVaccination = async (req, res) => {
 export const showAllVaccination = async (req, res) => {
     
     const allVaccination = await infoVaccination.showAllVaccionationService()
+    if(!allVaccination.length){
+        return res.status(400).json({message: ` erro ${ERRORS.NOT_FOUND}`})
+    }
 
     res
         .status(201)
@@ -34,9 +37,9 @@ export const showAllVaccination = async (req, res) => {
 
 export const showVaccionationByQuery = async (req, res) => {
 
-    const {nameVaccination, data, urlInfo} = req.query
+    const {nameVaccination, data, urlInfo,nameEpidemy} = req.query
 
-    const vaccination = await infoVaccination.showAllVaccionationByQueryService(nameVaccination, data, urlInfo)
+    const vaccination = await infoVaccination.showAllVaccionationByQueryService(nameVaccination, data, urlInfo,nameEpidemy)
 
     if(vaccination === 'não encontrada'){
         return res.status(400).json({ message: `Erro informacao ${ERRORS.NOT_FOUND} ` })
@@ -51,7 +54,7 @@ export const updateVaccination = async (req, res) => {
     const { id } = req.params
     const { nameEpidemy, nameVaccination, description, data, urlInfo } = req.query
     const vaccination = await infoVaccination.updateVaccinationService(id, nameEpidemy, nameVaccination, description, data, urlInfo)
-
+    console.log(vaccination)
     if (vaccination === 'não encontrada') {
         return res.status(400).json({ message: `Erro informacao ${ERRORS.NOT_FOUND} ` })
     }
@@ -74,7 +77,7 @@ export const deleteVaccination = async (req, res) => {
     const { id } = req.params
 
     const vaccination = await infoVaccination.deleteVaccinationService(id)
-    console.log(vaccination)
+   
 
     if (vaccination === 'não encontrada') {
         return res.status(400).json({ message: `Erro vacination ${ERRORS.NOT_FOUND} ` })
