@@ -55,4 +55,4 @@ export const RelatosEntity = database.define("relatosDeCasos", {
 
 }
 
-    //nome,nameEpidemy,Casedescription,email,data,nameState,localName,CPF
+    //nome,nameEpidemy,Casedescription,email,data,nameState,localName,CPF;

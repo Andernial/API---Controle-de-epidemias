@@ -9,3 +9,4 @@ relatosCasosRoutes.get("/get-case", getCases)
 
 relatosCasosRoutes.put("/put-case/:id", updadeRelatos)
 
+

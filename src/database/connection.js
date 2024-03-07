@@ -23,3 +23,5 @@ const testConnection = async () => {
 };
 
 export { testConnection, sequelize }
+
+//.
