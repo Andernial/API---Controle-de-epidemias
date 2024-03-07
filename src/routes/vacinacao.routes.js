@@ -1,17 +1,26 @@
 import { Router } from "express";
-import { createInfoVaccination, showAllVaccination, showVaccionationByQuery, updateVaccination, deleteVaccination } from "../controller/vacinacao.controller.js";
+import {
+   createInfoVaccination,
+   showAllVaccination,
+   showVaccionationByQuery,
+   updateVaccination,
+   deleteVaccination
+}
+   from "../controller/vacinacao.controller.js";
+
 const VaccinationRouter = Router();
 
 
-VaccinationRouter.post ("/create-vaccination", createInfoVaccination);
+VaccinationRouter.post("/create", createInfoVaccination);
 
-VaccinationRouter.get ("/showAll-vaccination", showAllVaccination);
+VaccinationRouter.get("/show-all", showAllVaccination);
 
-VaccinationRouter.get ("/showBy-query", showVaccionationByQuery);
+VaccinationRouter.get("/show-by-query", showVaccionationByQuery);
 
-VaccinationRouter.put ("/update-vaccination/:id", updateVaccination);
+VaccinationRouter.put("/update/:id", updateVaccination);
 
-VaccinationRouter.delete("/delete-vaccination/:id", deleteVaccination);
+VaccinationRouter.delete("/delete/:id", deleteVaccination);
 
 
 export { VaccinationRouter };
+   

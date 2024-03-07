@@ -5,10 +5,10 @@ import { verifyJwt } from "../middleware/verifyJwt.middleware.js";
 
 const admRouter = Router();
 
-admRouter.get("/login-adm", loginAdm)
+admRouter.get("/login", loginAdm)
 
-admRouter.post('/register-adm', verifyJwt, registerAdm)
+admRouter.post('/register', verifyJwt, registerAdm)
 
-admRouter.post("/logout-adm", logoutAdm)
+admRouter.post("/logout", logoutAdm)
 
 export{ admRouter }

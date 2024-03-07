@@ -19,7 +19,7 @@ export const RelatosEntity = database.define('relatosDeCasos', {
         allowNull: false
     },
 
-    Casedescription:{
+    caseDescription:{
         type: DataTypes.STRING(255),
         allowNull: false
     },
@@ -39,13 +39,13 @@ export const RelatosEntity = database.define('relatosDeCasos', {
         allowNull: false            
     },
 
-    localName:{
-        type: DataTypes.STRING(2),
+    localName:{ 
+        type: DataTypes.STRING(255),
         allowNull: false    
     },
 
     CPF:{
-        type: DataTypes.STRING(2),
+        type: DataTypes.STRING(11),
         allowNull: false    
     }
 

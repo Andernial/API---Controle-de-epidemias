@@ -7,7 +7,7 @@ const sequelize = new Sequelize("db_controle", "root", "1234", {
     dialect: "mysql"
 });
 
-//  sequelize.query("DROP TABLE vacinacao")
+//  sequelize.query("DROP TABLE relatosDeCasos")
 //  .then(console.log("Tabela apagada com sucesso!"))
 //  .catch(er => console.error(er))
 

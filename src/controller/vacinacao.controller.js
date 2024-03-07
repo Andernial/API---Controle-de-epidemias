@@ -3,7 +3,7 @@ import { ERRORS, SUCCESS } from "../shared/messages.js";
 
 const infoVaccination = new vacinacaoService();
 
-const createInfoVaccination = async (req, res) => {
+export const createInfoVaccination = async (req, res) => {
     const {nameEpidemy, nameVaccination, description, data, urlInfo} = req.body
 
     const vaccination = await infoVaccination.createInformationVaccinationService(nameEpidemy, nameVaccination, description, data, urlInfo) 
@@ -23,7 +23,7 @@ const createInfoVaccination = async (req, res) => {
         .json({ message: `informação ${SUCCESS.CREATED}`, informação: vaccination })
 };
 
-const showAllVaccination = async (req, res) => {
+export const showAllVaccination = async (req, res) => {
     
     const allVaccination = await infoVaccination.showAllVaccionationService()
 
@@ -32,7 +32,7 @@ const showAllVaccination = async (req, res) => {
         .json({ message: `informação ${SUCCESS.CREATED}`, informação: allVaccination })
 };
 
-const showVaccionationByQuery = async (req, res) => {
+export const showVaccionationByQuery = async (req, res) => {
 
     const {nameVaccination, data, urlInfo} = req.query
 
@@ -47,7 +47,7 @@ const showVaccionationByQuery = async (req, res) => {
         .json({ vaccination })
 };
 
-const updateVaccination = async (req, res) => {
+export const updateVaccination = async (req, res) => {
     const { id } = req.params
     const { nameEpidemy, nameVaccination, description, data, urlInfo } = req.query
     const vaccination = await infoVaccination.updateVaccinationService(id, nameEpidemy, nameVaccination, description, data, urlInfo)
@@ -69,7 +69,7 @@ const updateVaccination = async (req, res) => {
     .json({ message: `vacinação ${SUCCESS.UPDATED}`, informação: vaccination })
 };
 
-const deleteVaccination = async (req, res) => {
+export const deleteVaccination = async (req, res) => {
     
     const { id } = req.params
 
@@ -87,4 +87,3 @@ const deleteVaccination = async (req, res) => {
     }
 };
 
-export { createInfoVaccination, showAllVaccination, showVaccionationByQuery, updateVaccination, deleteVaccination};

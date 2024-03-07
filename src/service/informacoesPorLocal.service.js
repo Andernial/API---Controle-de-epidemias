@@ -4,7 +4,7 @@ import { SUCCESS } from "../shared/messages.js";
 
 
 
-export class InformacoesPorLocalService {
+export class InformacoesPorLocalService {   
     async createInformationService(nameState, localName, nameEpidemy, description, numberOfCases, numberOfPossibleCases, numberOfFatalities, urlInfoLocations, data) {
         try {
             await InformacoesPorLocalEntity.sync()
