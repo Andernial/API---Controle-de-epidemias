@@ -1,14 +1,14 @@
 import { DataTypes } from "sequelize";
 import { sequelize as database } from "../database/connection.js";
 
-export const DiretrizesProfissionais = database.define('diretrizes', {
+export const DiretrizesProfissionaisEntity = database.define('diretrizes', {
 
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey:true
     },
-
+   
     nameEpidemy:{
         type: DataTypes.STRING(20),
         allowNull: false
@@ -21,7 +21,8 @@ export const DiretrizesProfissionais = database.define('diretrizes', {
 
     urlInfo:{
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true,
+        unique: true
     },
 
     data:{

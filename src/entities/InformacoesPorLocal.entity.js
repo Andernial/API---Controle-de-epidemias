@@ -47,8 +47,8 @@ export const InformacoesPorLocalEntity = database.define('informacoesPorLocal', 
 
     urlInfoLocations:{
         type: DataTypes.STRING(100),
-        unique: true,
-        allowNull: true
+        unique:true,
+        allowNull: false
     },
     
     data:{
