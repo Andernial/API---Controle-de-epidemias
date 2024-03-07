@@ -11,8 +11,11 @@ export class DiretrizesProfissionaisService{
                     nameEpidemy, description, urlInfo, data
                 
             }) 
+
+            let id = diretriz.id
+
                 
-            return `Diretiz ${SUCCESS.CREATED} ${diretriz} `
+            return {message:`Diretiz ${SUCCESS.CREATED} `, diretriz: diretriz}
 
         } catch (error) {
             return error

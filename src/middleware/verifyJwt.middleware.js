@@ -6,6 +6,7 @@ export const SECRET = "4654s465d465fg"
 export const verifyJwt = async (req, res, next ) =>{
     const token = req.headers['x-acess-token']
     const verifyPromise = util.promisify(jwt.verify)
+    await BlackListedTokenEntity.sync()
     const verifyBlackList = await BlackListedTokenEntity.findByPk(token)
 
     try{

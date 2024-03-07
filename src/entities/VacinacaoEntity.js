@@ -14,13 +14,13 @@ export const VacinacaoEntity = database.define('vacinacao', {
         allowNull: false
     },
 
-    description:{
+    nameVaccination:{
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: false, 
     },
 
-    urlInfo:{
-        type: DataTypes.STRING(100),
+    description:{
+        type: DataTypes.STRING(255),
         allowNull: false
     },
 
@@ -29,5 +29,8 @@ export const VacinacaoEntity = database.define('vacinacao', {
         allowNull: false
     },
 
-  
+    urlInfo:{
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
 });
