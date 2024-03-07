@@ -10,7 +10,7 @@ export const NoticiaEntity = database.define('noticia', {
     },
 
     title:{
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(255),
         unique: true,
         allowNull: false
     },
@@ -21,18 +21,18 @@ export const NoticiaEntity = database.define('noticia', {
     },
 
     description:{
-        type: DataTypes.STRING(255),
+        type: DataTypes.TEXT('long'),
         allowNull: false
     },
 
     urlNews:{
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(255),
         unique: true,
         allowNull: false
     },
 
     data:{
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(11),
         allowNull: false
     }
 });
