@@ -132,7 +132,7 @@ Headers x-acess-token = 'token gerado com login'
 }
 ```
 
-### Adicionando Noticia 
+### Adicionando Notícia 
 
 - **Endpoint**: `/api/noticias/create`
 - **Método HTTP**: POST
@@ -235,7 +235,7 @@ POST /api/noticias/show-all
 - **Método HTTP**: GET
 - **Descrição**: Traz notícias do banco de dados de acordo com a query especificada na requisição.
 
-#### Querys de requisiçãp
+#### Querys de requisição
 - `title`: título para notícia
 - `nameEpidemy`: nome da epidemia referida na notícia 
 - `description`: descrição da notícia
