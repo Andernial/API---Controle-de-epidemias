@@ -1,5 +1,5 @@
 # Api controle de epidemias - (documentação em progresso)
-## 👾tecnologias utilizadas
+## 👾Tecnologias utilizadas
 node, express, cors, nodemon,jsonwebtoken,sequelize 
 
 ## 📚Descrição
