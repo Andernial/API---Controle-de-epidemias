@@ -38,8 +38,8 @@ nesse caso será necessario criar um novo banco de dados.
 - `x-acess-token`: é necessario um 'x-acess-token' de um ADM logado para executar essa requisição.
 
 #### Parâmetros de Requisição
-- `name`: O nome do admnistrador.
-- `password`: A senha do admnistrador.
+- `name`: O nome do administrador.
+- `password`: A senha do administrador.
 
 
 #### Exemplo de Requisição
@@ -74,8 +74,8 @@ Headers x-acess-token = 'token gerado com login'
 - **Descrição**: Autentica um ADM e gera um token JWT que pode ser usado em recursos protegidos.
 
 #### Parâmetros de Requisição
-- `name`: O nome do admnistrador.
-- `password`: A senha do admnistrador.
+- `name`: O nome do administrador.
+- `password`: A senha do administrador.
 
 
 #### Exemplo de Requisição
