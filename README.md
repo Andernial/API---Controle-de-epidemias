@@ -345,7 +345,7 @@ POST /api/noticias/delete/:id
 
 ## ❓FAQ
 
-### Para utilizar as rotas 
+### 🖱️Para utilizar as rotas 
 
 As rotas utilizam verificações de token jwt, para acessá las será necessário enviar um token válido que é dado como retorno na rota de login de adm.
 
