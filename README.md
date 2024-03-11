@@ -58,7 +58,7 @@ Headers x-acess-token = 'token gerado com login'
 {
 	"message": "adm criado com sucesso!",
 	"adm": {
-		"id": "b35eed71-6e88-4940-903f-6ab16babfd6f",
+		"id": "UUID",
 		"name": "nome",
 		"password": "12345",
 		"updatedAt": "2024-03-11T16:33:42.759Z",
