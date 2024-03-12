@@ -30,7 +30,7 @@ nesse caso será necessario criar um novo banco de dados.
 
 ### Criação de ADM
 
-- **Endpoint**: `/api/adm/register`
+- **Endpoint**: `/localhost:porta/adm/register`
 - **Método HTTP**: POST
 - **Descrição**: Cria um novo ADM e gera um token JWT que pode ser usado em recursos protegidos.
 
@@ -45,7 +45,7 @@ nesse caso será necessario criar um novo banco de dados.
 #### Exemplo de Requisição
 
 ```json
-POST /api/adm/register
+POST /localhost:porta/adm/register
 Headers x-acess-token = 'token gerado com login'
 {
 	"name":"nome",
@@ -69,7 +69,7 @@ Headers x-acess-token = 'token gerado com login'
 
 ### Login de ADM
 
-- **Endpoint**: `/api/adm/login`
+- **Endpoint**: `/localhost:porta/adm/login`
 - **Método HTTP**: GET
 - **Descrição**: Autentica um ADM e gera um token JWT que pode ser usado em recursos protegidos.
 
@@ -81,7 +81,7 @@ Headers x-acess-token = 'token gerado com login'
 #### Exemplo de Requisição
 
 ```json
-POST /api/adm/register
+POST /localhost:porta/adm/register
 
 {
 	"name":"nome",
@@ -104,7 +104,7 @@ POST /api/adm/register
 
 ### Logout de ADM
 
-- **Endpoint**: `/api/adm/logout`
+- **Endpoint**: `/localhost:porta/adm/logout`
 - **Método HTTP**: POST
 - **Descrição**: Encerra a seção do ADM, invalidando também o token JWT.
 
@@ -114,7 +114,7 @@ POST /api/adm/register
 #### Exemplo de Requisição
 
 ```json
-POST /api/adm/logout
+POST /localhost:porta/adm/logout
 Headers x-acess-token = 'token gerado com login'
 ```
 
@@ -134,7 +134,7 @@ Headers x-acess-token = 'token gerado com login'
 
 ### Adicionando Notícia 
 
-- **Endpoint**: `/api/noticias/create`
+- **Endpoint**: `/localhost:porta/noticias/create`
 - **Método HTTP**: POST
 - **Descrição**: Adiciona notícia no banco de dados.
 
@@ -152,7 +152,7 @@ Headers x-acess-token = 'token gerado com login'
 #### Exemplo de Requisição
 
 ```json
-POST /api/noticias/create
+POST /localhost:porta/noticias/create
 Headers x-acess-token = 'token gerado com login'
 {
 		"title": "titulo",
@@ -187,7 +187,7 @@ Headers x-acess-token = 'token gerado com login'
 
 ### Trazendo Todas As Notícias 
 
-- **Endpoint**: `/api/noticias/show-all`
+- **Endpoint**: `/localhost:porta/noticias/show-all`
 - **Método HTTP**: GET
 - **Descrição**: Traz todas as notícias do banco de dados.
 
@@ -231,7 +231,7 @@ POST /api/noticias/show-all
 
 ### Trazendo Notícia Por Query
 
-- **Endpoint**: `/api/noticias/show-by`
+- **Endpoint**: `/localhost:porta/noticias/show-by`
 - **Método HTTP**: GET
 - **Descrição**: Traz notícias do banco de dados de acordo com a query especificada na requisição.
 
@@ -246,7 +246,7 @@ POST /api/noticias/show-all
 #### Exemplo de Requisição
 
 ```json
-POST /api/noticias/show-by?title=teste&nameEpidemy=teste
+POST /localhost:porta/noticias/show-by?title=teste&nameEpidemy=teste
 
 ```
 
@@ -272,7 +272,7 @@ POST /api/noticias/show-by?title=teste&nameEpidemy=teste
 
 ### Atualizando Notícia 
 
-- **Endpoint**: `/api/noticias/update-by/:id`
+- **Endpoint**: `/localhost:porta/noticias/update-by/:id`
 - **Método HTTP**: PUT
 - **Descrição**: Atualiza uma noticia de acordo com as querys passadas na requisição.
 
@@ -291,7 +291,7 @@ POST /api/noticias/show-by?title=teste&nameEpidemy=teste
 #### Exemplo de Requisição
 
 ```json
-POST /api/noticias/update-by/:id?title=teste&nameEpidemy=teste
+POST /localhost:porta/noticias/update-by/:id?title=teste&nameEpidemy=teste
 
 ```
 
@@ -317,7 +317,7 @@ POST /api/noticias/update-by/:id?title=teste&nameEpidemy=teste
 
 ### Deletando Notícia 
 
-- **Endpoint**: `/api/noticias/delete/:id`
+- **Endpoint**: `/localhost:porta/noticias/delete/:id`
 - **Método HTTP**: DELETE
 - **Descrição**: Atualiza uma noticia de acordo com as querys passadas na requisição.
 
@@ -329,7 +329,7 @@ POST /api/noticias/update-by/:id?title=teste&nameEpidemy=teste
 #### Exemplo de Requisição
 
 ```json
-POST /api/noticias/delete/:id
+POST /localhost:porta/noticias/delete/:id
 
 ```
 
