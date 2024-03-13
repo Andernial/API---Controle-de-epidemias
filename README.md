@@ -319,7 +319,7 @@ POST /localhost:porta/noticias/update-by/:id?title=teste&nameEpidemy=teste
 
 - **Endpoint**: `/localhost:porta/noticias/delete/:id`
 - **Método HTTP**: DELETE
-- **Descrição**: Atualiza uma noticia de acordo com as querys passadas na requisição.
+- **Descrição**: Deleta notícia de acordo com o ID.
 
 #### Headers para requisição
 - `x-acess-token`: é necessario um 'x-acess-token' de um ADM logado para executar essa requisição.
